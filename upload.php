@@ -12,6 +12,15 @@
     </head>
     <body>
         <div class="container">
+        <div class="row">
+            <form method="post" id="test-form">
+            <div class="form-group">
+                <input type="text" name="test_name" class="form-control">
+                <input type="submit" value="Send" class="btn btn-warning">
+            </div>
+            </form>
+        </div>
+        <div class="row">
             <form method="post" id="insert-form" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="title">Upload</label>
@@ -23,6 +32,10 @@
                 </div>
             </form>
         </div>
+        <div class="row">
+            <?php// include ('show.php') ?>
+        </div>
+        </div>
 
         <?php //require 'show.php'; ?>
 
@@ -31,7 +44,12 @@
 
         <script>
             $(document).ready(function () {
-
+                var file = '';
+                $("#title").on("change", function(){
+                    file = $(this)[0].value;
+                    console.log($(this)[0].value);
+                });
+/*
                 $('#insert-form').on('submit', function (e) {
                     e.preventDefault();
                     $.ajax({
@@ -47,15 +65,18 @@
                         },
                         success: function (data) {
                             $('#insert-form')[0].reset();
+                            location.reload();
                         }
 
                     });
                 });
 
 
-
+*/
             });
         </script>
+
+
 
     </body>
 </html>
